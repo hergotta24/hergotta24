@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="680" height="150" viewBox="0 0 680 150" role="img" aria-labelledby="title desc">
   <title id="title">Aggregate AI token usage</title>
-  <desc id="desc">1.19B tokens tracked since 2026-07-31; 124.2M in the last seven days.</desc>
+  <desc id="desc">1.20B tokens tracked since 2026-07-31; 134.1M in the last seven days.</desc>
   <style>
     .bg { fill: #0d1117; stroke: #30363d; }
     .label { fill: #8b949e; font: 600 13px -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; letter-spacing: .04em; }
@@ -13,8 +13,8 @@
   <text class="title" x="24" y="30">AGGREGATE AI TOKEN USAGE</text>
   <line class="rule" x1="340" y1="48" x2="340" y2="112"/>
   <text class="label" x="24" y="65">LIFETIME</text>
-  <text class="value" x="24" y="101">1.19B</text>
+  <text class="value" x="24" y="101">1.20B</text>
   <text class="label" x="372" y="65">LAST 7 DAYS</text>
-  <text class="value" x="372" y="101">124.2M</text>
+  <text class="value" x="372" y="101">134.1M</text>
   <text class="note" x="24" y="132">Tracking since 2026-07-31 · session-start estimate until 7 daily snapshots exist</text>
 </svg>
