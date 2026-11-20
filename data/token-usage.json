@@ -1,0 +1,10 @@
+{
+  "generated_at": "2026-11-20T17:42:45.636098Z",
+  "lifetime_tokens": 1197359220,
+  "rolling_7d_tokens": 134063501,
+  "rolling_7d_method": "session-start estimate until 7 daily snapshots exist",
+  "tracking_since": "2026-07-31",
+  "source_count": 3,
+  "stale_source_count": 0,
+  "definition": "Input + output + cache-read + cache-write tokens from available agent records"
+}
