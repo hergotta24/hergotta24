@@ -1,0 +1,41 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Chess: play a local game",
+      "type": "debugpy",
+      "request": "launch",
+      "module": "chess_profile.cli",
+      "args": ["play-local"],
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal"
+    },
+    {
+      "name": "Chess: dry-run a crowd move (e2e4)",
+      "type": "debugpy",
+      "request": "launch",
+      "module": "chess_profile.cli",
+      "args": ["handle-issue", "--title", "chess|move|e2e4|1", "--user", "someone", "--issue", "0", "--dry-run"],
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal"
+    },
+    {
+      "name": "Chess: redraw README from saved state",
+      "type": "debugpy",
+      "request": "launch",
+      "module": "chess_profile.cli",
+      "args": ["render"],
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal"
+    },
+    {
+      "name": "Tests: pytest",
+      "type": "debugpy",
+      "request": "launch",
+      "module": "pytest",
+      "args": ["-q"],
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal"
+    }
+  ]
+}

@@ -1,56 +1,34 @@
-# Alex Hergott
+# Hi, I'm Alex 👋
 
 **Software engineer building practical, local-first tools and data-driven applications.**
 
-I focus on projects that solve concrete problems, make complex workflows easier to use, and deepen my engineering skills. I’m currently building Windows productivity software, an NBA simulation platform, and a version-controlled anime review journal while studying Azure fundamentals and expanding my homelab experience.
+Want to play chess? You're all on the same team, and the team plays against me. Make a move below 👇
 
-## Featured work
+<!-- CHESS:START -->
+## Play chess against me
 
-### Local Dictation for Windows
+<p align="center"><img src="assets/chess/board-1-0.svg" width="420" alt="Current chess board, game 1"></p>
 
-A local-first push-to-talk dictation app built around offline speech recognition. It emphasizes responsive global hotkeys, visible capture feedback, safe text insertion, and privacy-preserving on-device processing.
+**Game 1** · The crowd (you) plays **White**, Alex plays **Black** · 0 moves played
 
-**Stack:** C#, .NET, WPF, whisper.cpp, Windows APIs<br>
-**Status:** Active development · source currently private
+> **Your move!** Click a move below, then press **Submit new issue**. A bot plays it in about a minute.
 
-### Hoops Sim
+| Piece | Moves |
+| :-- | :-- |
+| Knight | [Na3](https://github.com/hergotta24/hergotta24/issues/new?title=chess%7Cmove%7Cb1a3%7C1&body=Just%20press%20%2A%2ASubmit%20new%20issue%2A%2A.%20A%20bot%20will%20play%20the%20move.) [Nc3](https://github.com/hergotta24/hergotta24/issues/new?title=chess%7Cmove%7Cb1c3%7C1&body=Just%20press%20%2A%2ASubmit%20new%20issue%2A%2A.%20A%20bot%20will%20play%20the%20move.) [Nf3](https://github.com/hergotta24/hergotta24/issues/new?title=chess%7Cmove%7Cg1f3%7C1&body=Just%20press%20%2A%2ASubmit%20new%20issue%2A%2A.%20A%20bot%20will%20play%20the%20move.) [Nh3](https://github.com/hergotta24/hergotta24/issues/new?title=chess%7Cmove%7Cg1h3%7C1&body=Just%20press%20%2A%2ASubmit%20new%20issue%2A%2A.%20A%20bot%20will%20play%20the%20move.) |
+| Pawn | [a3](https://github.com/hergotta24/hergotta24/issues/new?title=chess%7Cmove%7Ca2a3%7C1&body=Just%20press%20%2A%2ASubmit%20new%20issue%2A%2A.%20A%20bot%20will%20play%20the%20move.) [a4](https://github.com/hergotta24/hergotta24/issues/new?title=chess%7Cmove%7Ca2a4%7C1&body=Just%20press%20%2A%2ASubmit%20new%20issue%2A%2A.%20A%20bot%20will%20play%20the%20move.) [b3](https://github.com/hergotta24/hergotta24/issues/new?title=chess%7Cmove%7Cb2b3%7C1&body=Just%20press%20%2A%2ASubmit%20new%20issue%2A%2A.%20A%20bot%20will%20play%20the%20move.) [b4](https://github.com/hergotta24/hergotta24/issues/new?title=chess%7Cmove%7Cb2b4%7C1&body=Just%20press%20%2A%2ASubmit%20new%20issue%2A%2A.%20A%20bot%20will%20play%20the%20move.) [c3](https://github.com/hergotta24/hergotta24/issues/new?title=chess%7Cmove%7Cc2c3%7C1&body=Just%20press%20%2A%2ASubmit%20new%20issue%2A%2A.%20A%20bot%20will%20play%20the%20move.) [c4](https://github.com/hergotta24/hergotta24/issues/new?title=chess%7Cmove%7Cc2c4%7C1&body=Just%20press%20%2A%2ASubmit%20new%20issue%2A%2A.%20A%20bot%20will%20play%20the%20move.) [d3](https://github.com/hergotta24/hergotta24/issues/new?title=chess%7Cmove%7Cd2d3%7C1&body=Just%20press%20%2A%2ASubmit%20new%20issue%2A%2A.%20A%20bot%20will%20play%20the%20move.) [d4](https://github.com/hergotta24/hergotta24/issues/new?title=chess%7Cmove%7Cd2d4%7C1&body=Just%20press%20%2A%2ASubmit%20new%20issue%2A%2A.%20A%20bot%20will%20play%20the%20move.) [e3](https://github.com/hergotta24/hergotta24/issues/new?title=chess%7Cmove%7Ce2e3%7C1&body=Just%20press%20%2A%2ASubmit%20new%20issue%2A%2A.%20A%20bot%20will%20play%20the%20move.) [e4](https://github.com/hergotta24/hergotta24/issues/new?title=chess%7Cmove%7Ce2e4%7C1&body=Just%20press%20%2A%2ASubmit%20new%20issue%2A%2A.%20A%20bot%20will%20play%20the%20move.) [f3](https://github.com/hergotta24/hergotta24/issues/new?title=chess%7Cmove%7Cf2f3%7C1&body=Just%20press%20%2A%2ASubmit%20new%20issue%2A%2A.%20A%20bot%20will%20play%20the%20move.) [f4](https://github.com/hergotta24/hergotta24/issues/new?title=chess%7Cmove%7Cf2f4%7C1&body=Just%20press%20%2A%2ASubmit%20new%20issue%2A%2A.%20A%20bot%20will%20play%20the%20move.) [g3](https://github.com/hergotta24/hergotta24/issues/new?title=chess%7Cmove%7Cg2g3%7C1&body=Just%20press%20%2A%2ASubmit%20new%20issue%2A%2A.%20A%20bot%20will%20play%20the%20move.) [g4](https://github.com/hergotta24/hergotta24/issues/new?title=chess%7Cmove%7Cg2g4%7C1&body=Just%20press%20%2A%2ASubmit%20new%20issue%2A%2A.%20A%20bot%20will%20play%20the%20move.) [h3](https://github.com/hergotta24/hergotta24/issues/new?title=chess%7Cmove%7Ch2h3%7C1&body=Just%20press%20%2A%2ASubmit%20new%20issue%2A%2A.%20A%20bot%20will%20play%20the%20move.) [h4](https://github.com/hergotta24/hergotta24/issues/new?title=chess%7Cmove%7Ch2h4%7C1&body=Just%20press%20%2A%2ASubmit%20new%20issue%2A%2A.%20A%20bot%20will%20play%20the%20move.) |
 
-A possession-level NBA simulator with matchup forecasting, walk-forward model evaluation, saved weekly predictions, and result grading. The project combines statistical modeling with an API and responsive browser interface.
+<details><summary>How it works</summary>
 
-**Stack:** Python, FastAPI, SQLite, JavaScript<br>
-**Status:** Active development · source currently private
+Everyone visiting this page plays together as one side against Alex. Each move link opens a new issue with the move already filled in. Submitting it starts a GitHub Action that checks the move, updates the board image, and rewrites this README. The first legal move wins. Nobody can make two crowd moves in a row. Alex gets pinged on every turn and plays from this same page.
 
-### [Anime Tier List](https://github.com/hergotta24/anime-tier-list)
+</details>
 
-A Markdown-first anime journal where each completed review is version controlled and placed into a personal tier list. Templates make it easy to add ratings without inventing or importing viewing history.
+**Alex vs the crowd:** 0 W · 0 L · 0 D
 
-**Stack:** Markdown, Git, GitHub<br>
-**Status:** Initial workflow under review
+_No crowd moves yet. Be the first!_
 
-## What I’m working on
+<sub>♟ Inspired by <a href="https://github.com/timburgan/timburgan">Tim Burgan's community chess game</a> (<a href="https://github.com/timburgan">@timburgan</a>). Thanks, Tim!</sub>
+<!-- CHESS:END -->
 
-- Shipping reliable local-first Windows tooling
-- Improving and validating NBA simulation workflows
-- Studying Azure fundamentals and cloud concepts
-- Building useful homelab and automation experience
-- Turning personal interests into maintainable public projects
-
-## Agent-assisted development
-
-I use AI agents as engineering collaborators for bounded research, implementation, and testing tasks. Automated output is reviewed, exercised, and kept behind the same pull-request approval process as other code.
-
-![Aggregate AI token usage](assets/token-usage.svg)
-
-The widget reports aggregate input, output, cache-read, and cache-write tokens from available agent records. It publishes totals only—never prompts, credentials, costs, model details, or per-agent usage. The seven-day value uses a clearly labeled session-start estimate until seven daily snapshots are available, then switches to snapshot deltas. See the [methodology](docs/token-widget.md).
-
-## Links
-
-<!-- TODO(Alex): Replace these placeholders during PR review. -->
-- **Résumé:** Link coming soon
-- **LinkedIn:** Link coming soon
-- **Portfolio:** Future project
-- **Contact:** Preferred public contact method coming soon
-
----
-
-GitHub’s native contribution graph appears below this profile overview.
+<sub>[How the chess bot works](docs/chess.md)</sub>

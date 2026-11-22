@@ -1,0 +1,3 @@
+-r requirements.txt
+pytest
+tzdata  # Windows has no system time-zone database; the token-widget tests need it
