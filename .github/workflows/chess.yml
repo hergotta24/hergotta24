@@ -1,0 +1,56 @@
+# Plays a chess move when someone opens an issue titled chess|...
+# The README links pre-fill that title. Inspired by github.com/timburgan/timburgan.
+name: Chess move
+
+on:
+  issues:
+    types: [opened]
+
+permissions:
+  contents: write
+  issues: write
+
+# One chess job at a time (shared with the reminder workflow) so moves never race.
+concurrency:
+  group: chess
+  cancel-in-progress: false
+
+jobs:
+  move:
+    if: startsWith(github.event.issue.title, 'chess|')
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    env:
+      # Untrusted issue fields go through env vars, never straight into the script text.
+      ISSUE_TITLE: ${{ github.event.issue.title }}
+      ISSUE_USER: ${{ github.event.issue.user.login }}
+      ISSUE_NUMBER: ${{ github.event.issue.number }}
+      CHESS_TEST_MODE: ${{ vars.CHESS_TEST_MODE }}
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - run: pip install -r requirements.txt
+
+      - name: Apply the move
+        run: >
+          python -m chess_profile.cli handle-issue
+          --title "$ISSUE_TITLE" --user "$ISSUE_USER" --issue "$ISSUE_NUMBER"
+          --reply-file "$RUNNER_TEMP/reply.json"
+
+      - name: Commit and push
+        id: push
+        run: |
+          bash scripts/chess_commit_push.sh "chess: game update from #${ISSUE_NUMBER} by @${ISSUE_USER}"
+
+      # Runs last so the comment never claims a move that didn't get saved.
+      - name: Reply on the issue
+        if: always()
+        env:
+          PUSH_OK: ${{ steps.push.outcome == 'success' }}
+        run: python -m chess_profile.cli reply --reply-file "$RUNNER_TEMP/reply.json" --issue "$ISSUE_NUMBER"

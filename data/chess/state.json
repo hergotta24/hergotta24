@@ -1,0 +1,22 @@
+{
+  "game": {
+    "id": 1,
+    "alex_color": "black",
+    "started_at": "2026-11-21T00:33:20Z",
+    "moves": [],
+    "status": "active",
+    "result": null,
+    "result_reason": null,
+    "last_move_at": null,
+    "last_crowd_mover": null,
+    "last_reminder_at": null
+  },
+  "record": {
+    "wins": 0,
+    "losses": 0,
+    "draws": 0
+  },
+  "crowd_moves": {},
+  "reminder_issue": null,
+  "board_image": "assets/chess/board-1-0.svg"
+}

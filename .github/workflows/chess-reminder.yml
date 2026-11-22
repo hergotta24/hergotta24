@@ -1,0 +1,48 @@
+# Daily: pings the owner if a move has waited 3+ days, and closes chess issues that never got answered.
+name: Chess reminder
+
+on:
+  schedule:
+    - cron: "0 15 * * *" # 15:00 UTC = 9am US Central
+  workflow_dispatch:
+    inputs:
+      force:
+        description: "Send the reminder now, even if 3 days haven't passed"
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+  issues: write
+
+concurrency:
+  group: chess
+  cancel-in-progress: false
+
+jobs:
+  remind:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    env:
+      CHESS_TEST_MODE: ${{ vars.CHESS_TEST_MODE }}
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      FORCE_FLAG: ${{ inputs.force && '--force' || '' }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - run: pip install -r requirements.txt
+
+      - name: Close unanswered chess issues
+        run: python -m chess_profile.cli sweep
+
+      - name: Remind the owner
+        run: python -m chess_profile.cli remind $FORCE_FLAG
+
+      - name: Commit and push
+        run: |
+          bash scripts/chess_commit_push.sh "chess: reminder sent"
