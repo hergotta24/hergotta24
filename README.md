@@ -1,6 +1,6 @@
-# Hi, I'm Alex 👋
+# Hey, I'm Alex 👋
 
-**Software engineer building practical, local-first tools and data-driven applications.**
+**Software engineer that's always looking for a challenge**
 
 Want to play chess? You're all on the same team, and the team plays against me. Make a move below 👇
 
