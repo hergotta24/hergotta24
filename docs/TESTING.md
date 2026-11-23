@@ -5,7 +5,7 @@ A cumulative list of manual checks. Add new ones and never delete old ones. Mark
 ## Chess: local
 
 - [ ] **TC-001 — Automated suite passes** (added 2026-11-20, feature/chess-profile)
-  - **Setup:** `python -m venv .venv; .venv\Scripts\pip install -r requirements-dev.txt`
+  - **Setup:** `py -3.12 -m venv .venv; .venv\Scripts\pip install -r requirements-dev.txt` (updated 2026-11-23: the PNG renderer needs Python 3.10+; an existing 3.9 `.venv` must be recreated)
   - **Steps:** 1. `.venv\Scripts\python -m pytest -q`
   - **Expected:** all tests pass. They include full scripted games: crowd checkmate, Alex checkmate, stalemate, threefold repetition, and promotion.
 - [ ] **TC-002 — Play a full local game** (added 2026-11-20, feature/chess-profile)
@@ -65,3 +65,22 @@ A cumulative list of manual checks. Add new ones and never delete old ones. Mark
   - **Setup:** none
   - **Steps:** 1. Open `README.md` in VS Code preview (or the sandbox README on GitHub)
   - **Expected:** only the intro, the chess section with the Tim Burgan credit, and the "How the chess bot works" link. No "Also building" or "Built with AI agents" sections, and no token-usage image.
+
+## Board image (PNG)
+
+- [ ] **TC-014 — Board shows on a restrictive work browser** (added 2026-11-23, fix/chessboard-profile-rendering)
+  - **Setup:** PR merged; the work laptop/browser that previously showed only the alt text
+  - **Steps:** 1. Open https://github.com/hergotta24 2. Hard-refresh (Ctrl+F5)
+  - **Expected:** the board image appears (not "Current chess board, game 1" alt text). Right-click → Open image in new tab shows a `.png` URL.
+- [ ] **TC-015 — Board file is a real PNG** (added 2026-11-23, fix/chessboard-profile-rendering)
+  - **Setup:** TC-001 setup
+  - **Steps:** 1. `.venv\Scripts\python -c "from PIL import Image; im=Image.open('assets/chess/board-1-0.png'); print(im.format, im.size)"` 2. `Get-ChildItem assets\chess`
+  - **Expected:** prints `PNG (840, 840)`; the folder holds exactly one `board-*.png` and no `.svg`. Backed by `test_board_image_is_a_real_png_at_2x_display_size`.
+- [ ] **TC-016 — Each move writes a new PNG and README points at it** (added 2026-11-23, fix/chessboard-profile-rendering)
+  - **Setup:** TC-001 setup
+  - **Steps:** 1. `.venv\Scripts\python -m chess_profile.cli play-local` 2. Enter `e4` 3. Open the printed temp folder's `assets\chess` and `README.md`
+  - **Expected:** only `board-1-1.png` exists, the README `<img>` uses it, and e2/e4 are highlighted yellow. Backed by `test_readme_embeds_png_board_not_svg`.
+- [ ] **TC-017 — Legacy SVG state migrates on render** (added 2026-11-23, fix/chessboard-profile-rendering)
+  - **Setup:** a scratch copy of the repo whose `state.json` points at `assets/chess/board-1-0.svg`
+  - **Steps:** 1. `.venv\Scripts\python -m chess_profile.cli --root <copy> render`
+  - **Expected:** the `.svg` is deleted, `board-1-0.png` is written, and `state.json`/README reference the `.png`. Backed by `test_render_migrates_a_legacy_svg_board_to_png`.

@@ -7,7 +7,7 @@ Want to play chess? You're all on the same team, and the team plays against me. 
 <!-- CHESS:START -->
 ## Play chess against me
 
-<p align="center"><img src="assets/chess/board-1-0.svg" width="420" alt="Current chess board, game 1"></p>
+<p align="center"><img src="assets/chess/board-1-0.png" width="420" alt="Current chess board, game 1"></p>
 
 **Game 1** · The crowd (you) plays **White**, Alex plays **Black** · 0 moves played
 

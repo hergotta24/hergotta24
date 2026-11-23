@@ -23,7 +23,7 @@ from .config import CONFIG_FILE, ChessConfig, RepoPaths, load_config
 from .game_service import GameService, Reply, utc_now
 from .github_io import ConsoleIssueClient, GitHubIssueClient, IssueClient
 from .readme import ChessSectionBuilder, IssueLinks, ReadmeUpdater
-from .renderer import BoardImageStore, SvgBoardRenderer
+from .renderer import BoardImageStore, PngBoardRenderer
 from .rules import ChessRules
 from .state import ALEX, BLACK, WHITE, JsonStateStore
 from .turn_policy import AlexVsCrowdPolicy
@@ -37,7 +37,7 @@ def build_service(root: Path, config: ChessConfig, clock=utc_now) -> GameService
         store=JsonStateStore(paths.state_file),
         rules=ChessRules(),
         policy=AlexVsCrowdPolicy(config),
-        renderer=SvgBoardRenderer(),
+        renderer=PngBoardRenderer(),
         images=BoardImageStore(root, paths.images_dir),
         readme=ReadmeUpdater(paths.readme, ChessSectionBuilder(config, links)),
         links=links,

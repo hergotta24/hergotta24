@@ -5,7 +5,7 @@ Visitors to the profile play one shared game of chess together, as a single team
 **Credit:** this is inspired by [Tim Burgan's community chess game](https://github.com/timburgan/timburgan) ([@timburgan](https://github.com/timburgan)). The core idea comes from Tim: README links open a pre-filled issue and a GitHub Action plays the move. What's different here:
 
 - Tim's game is crowd vs crowd. This one is the crowd vs Alex.
-- The board is a generated SVG image.
+- The board is a generated PNG image (drawn as SVG by python-chess, then rasterized so it shows up even where browsers or corporate proxies block SVG).
 - There are turn rules: no back-to-back crowd moves, and reminders when Alex owes a move.
 - Alex keeps a running W-L-D record and the README shows a crowd leaderboard.
 
@@ -17,7 +17,7 @@ The code in this repo was written from scratch.
 2. **The workflow.** Opening the issue triggers `.github/workflows/chess.yml`, which runs `python -m chess_profile.cli handle-issue`. That command:
    - parses the title (`commands.py`);
    - checks the move is allowed. It must be the current game. On Alex's turn only Alex may move. On the crowd's turn Alex may not move, and neither may whoever made the last crowd move (`turn_policy.py`). The move must also be legal chess (`rules.py`).
-   - updates `data/chess/state.json` and draws a new `assets/chess/board-<game>-<ply>.svg` (`renderer.py`). Each position gets a new file name so GitHub's image cache can't show a stale board.
+   - updates `data/chess/state.json` and draws a new `assets/chess/board-<game>-<ply>.png` (`renderer.py`). Each position gets a new file name so GitHub's image cache can't show a stale board, and older boards (PNG or legacy SVG) are deleted.
    - rewrites the README between `<!-- CHESS:START -->` and `<!-- CHESS:END -->` (`readme.py`).
 3. **Commit, then reply.** `scripts/chess_commit_push.sh` commits and pushes, retrying if the nightly token-widget commit landed first. Only *after* the push does the `reply` step comment on the issue and close it, so the bot never claims a move that wasn't saved.
 4. **Game over.** On checkmate, stalemate, threefold repetition, the fifty-move rule or insufficient material, the record updates and the README shows a **Start game N+1** link (`chess|new|N`). The new game flips Alex's color.
@@ -33,7 +33,7 @@ The code in this repo was written from scratch.
 | `chess_profile/state.py` | Saved game data + `JsonStateStore` |
 | `chess_profile/rules.py` | Chess rules (wraps python-chess) |
 | `chess_profile/turn_policy.py` | Who may move now |
-| `chess_profile/renderer.py` | SVG board + image file management |
+| `chess_profile/renderer.py` | Board drawing (SVG → 840px PNG via resvg + Pillow) + image file management |
 | `chess_profile/readme.py` | Builds and swaps the README section |
 | `chess_profile/github_io.py` | GitHub issues API (plus a console fake for local runs) |
 | `chess.config.json` | Owner, display name, reminder days, leaderboard size, test mode |
@@ -43,7 +43,7 @@ The service depends only on interfaces, so tests and local play swap in fakes. T
 ## Running it locally
 
 ```powershell
-python -m venv .venv
+py -3.12 -m venv .venv                                  # 3.10+ needed for the resvg wheel; CI uses 3.12
 .venv\Scripts\pip install -r requirements-dev.txt
 .venv\Scripts\python -m pytest -q                      # all tests, including full scripted games
 .venv\Scripts\python -m chess_profile.cli play-local    # play a whole game in the terminal

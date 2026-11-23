@@ -70,7 +70,7 @@ class ChessState:
     record: Record = field(default_factory=Record)
     crowd_moves: Dict[str, int] = field(default_factory=dict)
     reminder_issue: Optional[int] = None
-    board_image: Optional[str] = None  # repo-relative path of the current board SVG
+    board_image: Optional[str] = None  # repo-relative path of the current board image (PNG)
 
     @staticmethod
     def fresh(alex_color: str, now: str) -> "ChessState":
