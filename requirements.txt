@@ -1,1 +1,3 @@
 chess==1.11.2
+resvg-py==0.3.2  # SVG -> PNG for the README board; prebuilt wheels need Python 3.10+ (CI uses 3.12)
+Pillow==11.3.0   # shrinks the board PNG to a small palette image

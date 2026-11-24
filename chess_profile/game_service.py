@@ -167,8 +167,8 @@ class GameService:
     def _publish(self, state: ChessState) -> None:
         game = state.game
         board = self._rules.board_for(m.uci for m in game.moves)
-        svg = self._renderer.render(board, orientation=game.crowd_color)
-        state.board_image = self._images.write(game.id, len(game.moves), svg)
+        image = self._renderer.render(board, orientation=game.crowd_color)
+        state.board_image = self._images.write(game.id, len(game.moves), image, self._renderer.extension)
         legal = self._rules.legal_moves(board) if game.is_active else []
         self._readme.update(state, legal)
         self._store.save(state)
